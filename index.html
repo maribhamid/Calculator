@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgb(108, 105, 105);
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .body{
+            display: inline-flex;
+            flex-direction: column;
+            margin: 10px;
+            border-radius: 20px;
+            background-color: rgb(66, 66, 66);
+            margin-top: 30px;
+            padding: 10px 10px 50px 10px
+        }
+        .textDisplay{
+            margin: 5px;
+            width: 350px;
+            height: 50px;
+            background: #000;
+            color: white;
+            font-size: 45px;
+            border-radius: 20px;
+            padding: 10px;
+        }
+        button{
+            width: 80px;
+            height: 80px;
+            border-radius: 50px;
+            border: none;
+            background: rgb(31, 31, 31);
+            color:white;
+            font-size: 30px;
+            font-weight:normal;
+            margin: 5px;
+            transition: 0.5s;
+        }
+        button:hover{
+            opacity: 0.5;
+            color: black;
+        }
+        .operator{
+            background: orange;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="body">
+        <div class="text">
+            <p class="textDisplay"></p>
+        </div>
+        <div class="bittons">
+            <div>
+                <button onclick="updateCalculation('7')">7</button>
+                <button onclick="updateCalculation('8')">8</button>
+                <button onclick="updateCalculation('9')">9</button>
+                <button onclick="updateCalculation('-')" class="operator">-</button>
+            </div>
+            <div>
+                <button onclick="updateCalculation('4')">4</button>
+                <button onclick="updateCalculation('5')">5</button>
+                <button onclick="updateCalculation('6')">6</button>
+                <button onclick="updateCalculation('+')" class="operator">+</button>
+            </div>
+            <div>
+                <button onclick="updateCalculation('1')">1</button>
+                <button onclick="updateCalculation('2')">2</button>
+                <button onclick="updateCalculation('3')">3</button>
+                <button onclick="updateCalculation('/')" class="operator">/</button>
+                
+            </div> 
+            <div>
+                <button onclick="calculation=''; displayCalculation();">Clear</button>
+                <button onclick="updateCalculation('0')">0</button>
+                <button onclick="calculation=eval(calculation); displayCalculation();">=</button>
+                <button onclick="updateCalculation('*')" class="operator">*</button>
+
+            </div>    
+        </div>
+    </div>
+    
+</body>
+<script>
+    let calculation="";
+    displayCalculation();
+    function displayCalculation(){
+        document.querySelector(".textDisplay").innerHTML=calculation;
+    }
+    function updateCalculation(value){
+        calculation+=value;
+        displayCalculation();
+    }
+</script>
+</html>
